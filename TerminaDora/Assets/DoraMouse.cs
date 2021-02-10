@@ -23,19 +23,19 @@ public class DoraMouse : MonoBehaviour
         float iy = Input.GetAxis("Vertical");
         float ix = Input.GetAxis("Horizontal");
 
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             rb.velocity = new Vector2(-velocity, rb.velocity.y);    
         }
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             rb.velocity = new Vector2(velocity, rb.velocity.y);    
         }
-        if(Input.GetKey(KeyCode.W))
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             rb.velocity = new Vector2(rb.velocity.x, velocity);    
         }
-        if(Input.GetKey(KeyCode.S))
+        if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             rb.velocity = new Vector2(rb.velocity.x, -velocity);    
         }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6620959095024492471}
   - component: {fileID: 6620959095024492474}
   - component: {fileID: 6620959095024492475}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cloud_enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

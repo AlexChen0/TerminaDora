@@ -41,5 +41,29 @@ public class DoraMouse : MonoBehaviour
         }
 
     }
+    
+    #region quicksand code
+    
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.GetComponent<quicksand>())
+        {
+            Debug.Log("hitting");
+            velocity = 1f;
+            Debug.Log(velocity);
+        }
+    }
+    
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.GetComponent<quicksand>())
+        {
+            Debug.Log("hitting");
+            velocity = 5f;
+            Debug.Log(velocity);
+        }
+    }
+    
+    #endregion
 
 }

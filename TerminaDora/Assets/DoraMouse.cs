@@ -44,26 +44,44 @@ public class DoraMouse : MonoBehaviour
         {
             switch(switcher % 3)
             {
-                Debug.Log("triggered switch weapon");
                 case 0: 
-                    bullet = bullet1;
-                    pspeed = pspeed1;
-                    switcher++;
+                    bullet = bullet1; 
+                    pspeed = pspeed1; 
+                    switcher++; 
+                    break; 
+                case 1: 
+                    bullet = bullet2; 
+                    pspeed = pspeed2; 
+                    switcher++; 
                     break;
-                case 1:
-                    bullet = bullet2;
-                    pspeed = pspeed2;
-                    switcher++;
+                case 2: 
+                    bullet = bullet3; 
+                    pspeed = pspeed3; 
+                    switcher++; 
                     break;
-                case 2:
-                    bullet = bullet3;
-                    pspeed = pspeed3;
-                    switcher++;
-                    break;
-                default:
-                //do nothing
+                default: 
                     Debug.Log("ERROR");
-                    break;
+                    break; 
+                // Debug.Log("triggered switch weapon");
+                // case 0: 
+                //     bullet = bullet1;
+                //     pspeed = pspeed1;
+                //     switcher++;
+                //     break;
+                // case 1:
+                //     bullet = bullet2;
+                //     pspeed = pspeed2;
+                //     switcher++;
+                //     break;
+            //     case 2:
+            //         bullet = bullet3;
+            //         pspeed = pspeed3;
+            //         switcher++;
+            //         break;
+            //     default:
+            //     //do nothing
+            //         Debug.Log("ERROR");
+            //         break;
             }
         }
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))

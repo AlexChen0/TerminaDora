@@ -15,7 +15,7 @@ public class DoraMouse : MonoBehaviour
     public GameObject bullet3;
     float velocity = 5f;
     private Rigidbody2D rb;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,16 +31,14 @@ public class DoraMouse : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
         float iy = Input.GetAxis("Vertical");
         float ix = Input.GetAxis("Horizontal");
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log("Fired");
             GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-            Rigidbody2D instBulletRB = instBullet.GetComponent<Rigidbody2D>();
-            instBulletRB.AddForce(gameObject.transform.forward * pspeed);
+            instBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle)*pspeed, Mathf.Sin(angle)*pspeed);
             Physics2D.IgnoreCollision(instBullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
             Destroy(instBullet, 5f);
         }
-        if(Input.GetKeyDown(KeyCode.E)) //switch weapons
+        if(Input.GetKey(KeyCode.E)) //switch weapons
         {
             switch(switcher % 3)
             {

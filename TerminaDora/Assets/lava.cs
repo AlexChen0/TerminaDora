@@ -18,16 +18,18 @@ public class lava : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (inLava == true) {
-			time = time - Time.deltaTime;
-			Debug.Log(time);
-		} 
+		// if (inLava == true) {
+		// 	time = time - Time.deltaTime;
+		// 	Debug.Log(time);
+		// } 
 		
-		if (time <= 1) {
-			gameOver = true;
-			Debug.Log(gameOver);
-		}
-		
+		// if (time <= 1) {
+		// 	gameOver = true;
+		// 	Debug.Log(gameOver);
+		// }
+		// if (inLava){
+  //           HeartSystem.LavaDamage();
+  //       }
 
         
     }
@@ -36,9 +38,10 @@ public class lava : MonoBehaviour
     {
         if (col.gameObject.GetComponent<DoraMouse>())
         {
-			inLava = true;
-			Debug.Log(inLava);
-            Debug.Log("hitting");
+			col.GetComponent<HeartSystem>().LavaDamage();
+            // inLava = true;
+			// Debug.Log(inLava);
+   //          Debug.Log("hitting");
             // velocity = 1f;
             // Debug.Log(velocity);
         }

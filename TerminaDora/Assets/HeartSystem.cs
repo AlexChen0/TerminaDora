@@ -48,6 +48,15 @@ public class HeartSystem : MonoBehaviour
             //Destroy(hearts[life-1].gameObject);
         }
     }
+
+    public void LavaDamage(){
+    	while (life > 0){
+    		GameObject h = hearts[life-1].gameObject;
+    		hearts.RemoveAt(life-1);
+    		Destroy(h);
+    		life = life - 1; 
+    	}
+    }
     //uhhh figure out later
     /*
     void Heal(){

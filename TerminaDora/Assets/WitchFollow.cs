@@ -18,4 +18,18 @@ public class WitchFollow : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
+    void OnCollisionEnter2D(Collision2D c){
+        if (c.gameObject.tag.Equals("Bullet3")){
+            Destroy(c.gameObject);
+            Destroy(gameObject);
+        }
+        else if (c.gameObject.tag.Equals("Bullet1") || c.gameObject.tag.Equals("Bullet2"))
+        {
+            Destroy(c.gameObject);
+        }
+        else
+        {
+            //do nothing. another script handles this
+        }
+    }
 }

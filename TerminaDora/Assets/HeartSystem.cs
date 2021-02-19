@@ -31,6 +31,12 @@ public class HeartSystem : MonoBehaviour
             Destroy(c.gameObject);
             EnemyDamage();
         }
+        /*
+        if (c.gameObject.tag.Equals("healthy")){
+            Destroy(c.gameObject);
+            Heal();
+        }
+        */
     }
 
     void EnemyDamage(){
@@ -42,4 +48,12 @@ public class HeartSystem : MonoBehaviour
             //Destroy(hearts[life-1].gameObject);
         }
     }
+    //uhhh figure out later
+    /*
+    void Heal(){
+        if (life < 3){
+            GameObject h = hearts[life+1].gameObject; 
+        }
+    }
+    */
 }

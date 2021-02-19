@@ -9,17 +9,26 @@ public class DoraMouse : MonoBehaviour
     float pspeed2 = 20f;
     float pspeed3 = 30f;
     float switcher = 0f;
+    float offset = 270f;
+    float bulletcooldown = 1f;
+    float switchcooldown = 1f;
     public GameObject bullet;
     public GameObject bullet1;
     public GameObject bullet2;
     public GameObject bullet3;
     float velocity = 5f;
     private Rigidbody2D rb;
-    
+    private SpriteRenderer sr;
+    public Sprite gunsprite;
+    public Sprite bowsprite;
+    public Sprite rpgsprite;
+    private bool isInCooldown = false;
+    private bool isInSwitchCooldown = false;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -27,60 +36,61 @@ public class DoraMouse : MonoBehaviour
     {
         var direction = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
         var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
         rb.velocity = new Vector2(0, 0);
         float iy = Input.GetAxis("Vertical");
         float ix = Input.GetAxis("Horizontal");
         if (Input.GetKey(KeyCode.Space))
-        {
-            GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-            instBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle)*pspeed, Mathf.Sin(angle)*pspeed);
-            Physics2D.IgnoreCollision(instBullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-            Destroy(instBullet, 5f);
+        { //0.01745 is the degree to radian conversion constant. also transform.position should be something else to make it shoot from gun
+            if(!isInCooldown){
+                GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angle + offset, Vector3.forward));
+                instBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle*0.01745f)*pspeed, Mathf.Sin(angle*0.01745f)*pspeed);
+                Physics2D.IgnoreCollision(instBullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+                Destroy(instBullet, 5f);
+                Invoke("ResetCooldown", bulletcooldown);
+                isInCooldown = true;
+            }
+            
         }
         if(Input.GetKey(KeyCode.E)) //switch weapons
         {
-            switch(switcher % 3)
+            if(!isInSwitchCooldown)
             {
-                case 0: 
+                switch(switcher % 3)
+                {
+                case 0: //gun dora
                     bullet = bullet1; 
                     pspeed = pspeed1; 
+                    offset = 270f;
+                    sr.sprite = gunsprite;
+                    bulletcooldown = .3f;
                     switcher++; 
                     break; 
-                case 1: 
+                case 1: //arrow dora
                     bullet = bullet2; 
                     pspeed = pspeed2; 
+                    offset = 135f;
+                    sr.sprite = bowsprite;
+                    bulletcooldown = 1f;
                     switcher++; 
                     break;
-                case 2: 
+                case 2: //rpg dora
                     bullet = bullet3; 
                     pspeed = pspeed3; 
+                    offset = 180f;
+                    sr.sprite = rpgsprite;
+                    bulletcooldown = 2f;
                     switcher++; 
                     break;
                 default: 
                     Debug.Log("ERROR");
                     break; 
-                // Debug.Log("triggered switch weapon");
-                // case 0: 
-                //     bullet = bullet1;
-                //     pspeed = pspeed1;
-                //     switcher++;
-                //     break;
-                // case 1:
-                //     bullet = bullet2;
-                //     pspeed = pspeed2;
-                //     switcher++;
-                //     break;
-            //     case 2:
-            //         bullet = bullet3;
-            //         pspeed = pspeed3;
-            //         switcher++;
-            //         break;
-            //     default:
-            //     //do nothing
-            //         Debug.Log("ERROR");
-            //         break;
+
+                }
+                Invoke("ResetSwitchCooldown", switchcooldown);
+                isInSwitchCooldown = true;
             }
+            
         }
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
@@ -124,5 +134,11 @@ public class DoraMouse : MonoBehaviour
     }
     
     #endregion
-
+    private void ResetCooldown () {
+        isInCooldown = false;
+    }
+    private void ResetSwitchCooldown () {
+        isInSwitchCooldown = false;
+    }
 }
+

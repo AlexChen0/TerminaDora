@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\DoraMouse.cs" />
+     <Compile Include="Assets\HeartSystem.cs" />
      <Compile Include="Assets\WitchFollow.cs" />
      <Compile Include="Assets\cloud.cs" />
      <Compile Include="Assets\lava.cs" />

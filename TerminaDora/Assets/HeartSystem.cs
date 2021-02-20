@@ -16,7 +16,12 @@ public class HeartSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    	float xOffset = 0.0f;
+    	if (life <= 0){
+            GameOverScript.endGame();
+            Time.timeScale = 0; 
+        }
+
+        float xOffset = 0.0f;
         for (int i = 0; i < hearts.Count; i++){
         	Vector3 temp = hearts[i].transform.position;
         	temp.y = transform.position.y + 4.31f; 

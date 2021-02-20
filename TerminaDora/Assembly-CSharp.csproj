@@ -57,6 +57,7 @@
   <ItemGroup>
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\DoraMouse.cs" />
+     <Compile Include="Assets\GameOverScript.cs" />
      <Compile Include="Assets\HeartSystem.cs" />
      <Compile Include="Assets\MouseCursorChange.cs" />
      <Compile Include="Assets\WitchFollow.cs" />

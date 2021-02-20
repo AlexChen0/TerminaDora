@@ -16,7 +16,10 @@ public class WitchFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        float dist = Vector3.Distance(target.position, transform.position);
+        if (dist <= 10.0f){
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        }
     }
     void OnCollisionEnter2D(Collision2D c){
         if (c.gameObject.tag.Equals("Bullet3")){

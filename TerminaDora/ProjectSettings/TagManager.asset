@@ -20,12 +20,12 @@ TagManager:
   - 
   - 
   - EnemyLayer
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - TornadoLayer
+  - WitchLayer
+  - Bullet1Layer
+  - Bullet2Layer
+  - Bullet3Layer
+  - MonkeyLayer
   - 
   - 
   - 

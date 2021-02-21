@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7295899343312462669}
   - component: {fileID: 7295899343312462668}
   - component: {fileID: 7295899343312462671}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: monkey_enemy
   m_TagString: enemy
   m_Icon: {fileID: 0}

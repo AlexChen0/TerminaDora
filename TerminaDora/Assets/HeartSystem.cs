@@ -25,7 +25,7 @@ public class HeartSystem : MonoBehaviour
         for (int i = 0; i < hearts.Count; i++){
         	Vector3 temp = hearts[i].transform.position;
         	temp.y = transform.position.y + 4.31f; 
-        	temp.x = transform.position.x + 5.5f + xOffset; 
+        	temp.x = transform.position.x + 5.0f + xOffset; 
         	hearts[i].transform.position = temp;
         	xOffset = xOffset + 0.7f;
         }

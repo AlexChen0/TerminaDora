@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoraMouse : MonoBehaviour
 {
@@ -108,6 +109,10 @@ public class DoraMouse : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, -velocity);    
         }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            Reset();
+        }
 
     }
     
@@ -139,6 +144,11 @@ public class DoraMouse : MonoBehaviour
     }
     private void ResetSwitchCooldown () {
         isInSwitchCooldown = false;
+    }
+
+    private void Reset()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
 

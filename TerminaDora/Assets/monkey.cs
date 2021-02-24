@@ -20,10 +20,10 @@ public class monkey : MonoBehaviour
     void Update()
     {
     	rb = GetComponent<Rigidbody2D>();
-        if (rb.position.y >= og_y + 2.5){
+        if (rb.position.y >= og_y + 1.5){
         	speed = -2;
         }
-        if (rb.position.y <= og_y - 2.5){
+        if (rb.position.y <= og_y - 1.5){
         	speed = 2;
         }
         rb.velocity = Vector2.up * speed;

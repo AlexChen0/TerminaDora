@@ -21,10 +21,10 @@ public class cloud : MonoBehaviour
     void Update()
     {
         rb = GetComponent<Rigidbody2D>();
-        if (rb.position.x >= og_x + 2.5){
+        if (rb.position.x >= og_x + 1.4){
         	speed = -2;
         }
-        if (rb.position.x <= og_x - 2.5){
+        if (rb.position.x <= og_x - 1.4){
         	speed = 2;
         }
         rb.velocity = Vector2.right * speed;

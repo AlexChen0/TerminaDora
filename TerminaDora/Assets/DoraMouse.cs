@@ -11,8 +11,8 @@ public class DoraMouse : MonoBehaviour
     float pspeed3 = 30f;
     float switcher = 0f;
     float offset = 270f;
-    float bulletcooldown = 1f;
-    float switchcooldown = 1f;
+    float bulletcooldown = .3f;
+    float switchcooldown = .25f;
     public GameObject bullet;
     public GameObject bullet1;
     public GameObject bullet2;

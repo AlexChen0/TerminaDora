@@ -25,6 +25,8 @@ public class DoraMouse : MonoBehaviour
     public Sprite rpgsprite;
     private bool isInCooldown = false;
     private bool isInSwitchCooldown = false;
+    float armx = .36f;
+    float army = -.4f;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,10 +43,13 @@ public class DoraMouse : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
         float iy = Input.GetAxis("Vertical");
         float ix = Input.GetAxis("Horizontal");
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
         { //0.01745 is the degree to radian conversion constant. also transform.position should be something else to make it shoot from gun
             if(!isInCooldown){
-                GameObject instBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angle + offset, Vector3.forward));
+                GameObject instBullet = Instantiate(bullet, 
+                                                    new Vector2 (transform.position.x + armx * Mathf.Cos(angle * 0.01745f) + army * Mathf.Cos(angle * 0.01745f - 90*0.01745f), 
+                                                                 transform.position.y + armx * Mathf.Sin(angle * 0.01745f) + army * Mathf.Sin(angle * 0.01745f - 90*0.01745f)), 
+                                                    Quaternion.AngleAxis(angle + offset, Vector3.forward));
                 instBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle*0.01745f)*pspeed, Mathf.Sin(angle*0.01745f)*pspeed);
                 Physics2D.IgnoreCollision(instBullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
                 Destroy(instBullet, 5f);

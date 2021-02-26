@@ -57,14 +57,15 @@
   <ItemGroup>
      <Compile Include="Assets\CameraFollow.cs" />
      <Compile Include="Assets\DoraMouse.cs" />
+     <Compile Include="Assets\EnemyStuff\WitchFollow.cs" />
+     <Compile Include="Assets\EnemyStuff\cloud.cs" />
+     <Compile Include="Assets\EnemyStuff\monkey.cs" />
      <Compile Include="Assets\GameOverScript.cs" />
      <Compile Include="Assets\HeartSystem.cs" />
      <Compile Include="Assets\MouseCursorChange.cs" />
-     <Compile Include="Assets\WitchFollow.cs" />
-     <Compile Include="Assets\cloud.cs" />
-     <Compile Include="Assets\lava.cs" />
-     <Compile Include="Assets\monkey.cs" />
-     <Compile Include="Assets\quicksand.cs" />
+     <Compile Include="Assets\SwiperStuff.cs" />
+     <Compile Include="Assets\lava layer\lava.cs" />
+     <Compile Include="Assets\quicksand\quicksand.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

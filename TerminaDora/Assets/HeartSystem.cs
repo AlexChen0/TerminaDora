@@ -6,7 +6,7 @@ public class HeartSystem : MonoBehaviour
 {
     public List<GameObject> hearts = new List<GameObject>();
     int life; 
-
+    bool canbehurtbylava = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +36,13 @@ public class HeartSystem : MonoBehaviour
             Destroy(c.gameObject);
             EnemyDamage();
         }
+        if (c.gameObject.tag.Equals("SwiperBullet")){
+            Destroy(c.gameObject);
+            EnemyDamage();
+        }
+        if (c.gameObject.tag.Equals("swiper")){
+            EnemyDamage();
+        }
         /*
         if (c.gameObject.tag.Equals("healthy")){
             Destroy(c.gameObject);
@@ -55,12 +62,21 @@ public class HeartSystem : MonoBehaviour
     }
 
     public void LavaDamage(){
-    	while (life > 0){
-    		GameObject h = hearts[life-1].gameObject;
-    		hearts.RemoveAt(life-1);
-    		Destroy(h);
-    		life = life - 1; 
-    	}
+        if(canbehurtbylava)
+        {
+            if (life > 0){
+            GameObject h = hearts[life-1].gameObject; 
+            hearts.RemoveAt(life-1);
+            Destroy(h);
+            life = life - 1; 
+            Invoke("ResetCooldown", 1f);
+                canbehurtbylava = false;
+        }
+        }
+    	
+    }
+    private void ResetCooldown () {
+        canbehurtbylava = true;
     }
     //uhhh figure out later
     /*

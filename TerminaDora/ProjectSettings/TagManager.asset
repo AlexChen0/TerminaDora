@@ -10,6 +10,8 @@ TagManager:
   - Bullet3
   - healthy
   - Wall
+  - SwiperBullet
+  - swiper
   layers:
   - Default
   - TransparentFX

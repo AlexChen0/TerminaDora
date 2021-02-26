@@ -6901,6 +6901,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4660944927584749922, guid: cc329b1607299a44988d31cd4d8eb89f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4660944927584749923, guid: cc329b1607299a44988d31cd4d8eb89f,
         type: 3}
       propertyPath: m_Name
@@ -7049,6 +7054,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: heart1
       objectReference: {fileID: 0}
+    - target: {fileID: 7115429273066678973, guid: 462d806f1555b6045bb7a11ce9a6ab20,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 462d806f1555b6045bb7a11ce9a6ab20, type: 3}
 --- !u!1001 &7295899344429652181
@@ -7196,6 +7206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7617764982829312965, guid: a5035dcbeff41d74785a4cbe278ce9a8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5035dcbeff41d74785a4cbe278ce9a8, type: 3}

@@ -83,7 +83,7 @@ public class SwiperStuff : MonoBehaviour
                 }
                 
 
-                Invoke("ResetCooldown", 1.5f);
+                Invoke("ResetCooldown", 2f);
                 isInCooldown = true;
             }
             if(weaponchoice ==1)
@@ -94,7 +94,7 @@ public class SwiperStuff : MonoBehaviour
                 instBullet.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle*0.01745f)*pspeed, Mathf.Sin(angle*0.01745f)*pspeed);
                 Physics2D.IgnoreCollision(instBullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
                 Destroy(instBullet, 3f);
-                Invoke("ResetCooldown", .4f);
+                Invoke("ResetCooldown", .6f);
                 isInCooldown = true;
             }
 

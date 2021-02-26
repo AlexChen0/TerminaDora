@@ -65,10 +65,10 @@ public class SwiperStuff : MonoBehaviour
         }
         float dist = Vector3.Distance(target.position, transform.position);
         //see if able to shoot
-        if (!isInCooldown && dist < 12)
+        if (!isInCooldown && dist < 10)
         {
             //shoot
-            if(weaponchoice ==0)
+            if(weaponchoice ==0) //shotgun
             {
                 for(int i = 0; i <6; i++)
                 {
@@ -86,7 +86,7 @@ public class SwiperStuff : MonoBehaviour
                 Invoke("ResetCooldown", 2f);
                 isInCooldown = true;
             }
-            if(weaponchoice ==1)
+            if(weaponchoice ==1) //mg
             {
                 GameObject instBullet = Instantiate(bullet, 
                                                     transform.position,

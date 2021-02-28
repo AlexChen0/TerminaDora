@@ -43,6 +43,10 @@ public class HeartSystem : MonoBehaviour
         if (c.gameObject.tag.Equals("swiper")){
             EnemyDamage();
         }
+        if (c.gameObject.tag.Equals("healthy")){
+            Destroy(c.gameObject);
+            Heal();
+        }
         /*
         if (c.gameObject.tag.Equals("healthy")){
             Destroy(c.gameObject);
@@ -79,11 +83,15 @@ public class HeartSystem : MonoBehaviour
         canbehurtbylava = true;
     }
     //uhhh figure out later
-    /*
+    
     void Heal(){
         if (life < 3){
-            GameObject h = hearts[life+1].gameObject; 
+            Vector3 posn = hearts[life-1].transform.position;
+            posn.x = posn.x + 0.7f; 
+            GameObject newHeart = Instantiate(hearts[0], posn, Quaternion.identity);
+            hearts.Add(newHeart);
+            life = life + 1; 
         }
     }
-    */
+    
 }

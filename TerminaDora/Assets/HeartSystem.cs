@@ -25,7 +25,7 @@ public class HeartSystem : MonoBehaviour
         for (int i = 0; i < hearts.Count; i++){
         	Vector3 temp = hearts[i].transform.position;
         	temp.y = transform.position.y + 4.31f; 
-        	temp.x = transform.position.x + 5.0f + xOffset; 
+        	temp.x = transform.position.x + 4.8f + xOffset; 
         	hearts[i].transform.position = temp;
         	xOffset = xOffset + 0.7f;
         }
@@ -42,6 +42,10 @@ public class HeartSystem : MonoBehaviour
         }
         if (c.gameObject.tag.Equals("swiper")){
             EnemyDamage();
+        }
+        if (c.gameObject.tag.Equals("healthy")){
+            Destroy(c.gameObject);
+            Heal();
         }
         /*
         if (c.gameObject.tag.Equals("healthy")){
@@ -79,11 +83,15 @@ public class HeartSystem : MonoBehaviour
         canbehurtbylava = true;
     }
     //uhhh figure out later
-    /*
+    
     void Heal(){
         if (life < 3){
-            GameObject h = hearts[life+1].gameObject; 
+            Vector3 posn = hearts[life-1].transform.position;
+            posn.x = posn.x + 0.7f; 
+            GameObject newHeart = Instantiate(hearts[0], posn, Quaternion.identity);
+            hearts.Add(newHeart);
+            life = life + 1; 
         }
     }
-    */
+    
 }

@@ -7,7 +7,7 @@ public class cloud : MonoBehaviour
 	
     float og_x; 
     Rigidbody2D rb;
-    public float speed = 2;
+    public float speed = 8;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +22,10 @@ public class cloud : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         if (rb.position.x >= og_x + 1.4){
-        	speed = -2;
+        	speed = -8;
         }
         if (rb.position.x <= og_x - 1.4){
-        	speed = 2;
+        	speed = 8;
         }
         rb.velocity = Vector2.right * speed;
     }
